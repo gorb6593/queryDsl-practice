@@ -6,6 +6,8 @@ import com.querydsl.core.types.dsl.CaseBuilder;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import io.security.querydslpractice.dto.MemberDto;
+import io.security.querydslpractice.dto.QMemberDto;
 import io.security.querydslpractice.entity.Member;
 import io.security.querydslpractice.entity.QMember;
 import io.security.querydslpractice.entity.QTeam;
@@ -356,6 +358,18 @@ public class QueryDslBasicTest {
             Integer age = tuple.get(member.age);
             System.out.println("username = " + username);
             System.out.println("age = " + age);
+        }
+    }
+
+    @Test
+    public void findDtoByProjection() {
+        List<MemberDto> result = queryFactory
+                .select(new QMemberDto(member.username, member.age))
+                .from(member)
+                .fetch();
+
+        for (MemberDto memberDto : result) {
+            System.out.println("memberDto = " + memberDto);
         }
     }
 
