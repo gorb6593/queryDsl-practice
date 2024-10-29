@@ -2,8 +2,6 @@ package io.security.querydslpractice;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;
-import com.querydsl.core.types.Expression;
-import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.CaseBuilder;
 import com.querydsl.core.types.dsl.Expressions;
@@ -13,7 +11,6 @@ import io.security.querydslpractice.dto.MemberDto;
 import io.security.querydslpractice.dto.QMemberDto;
 import io.security.querydslpractice.entity.Member;
 import io.security.querydslpractice.entity.QMember;
-import io.security.querydslpractice.entity.QTeam;
 import io.security.querydslpractice.entity.Team;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -28,8 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static io.security.querydslpractice.entity.QMember.member;
-import static io.security.querydslpractice.entity.QTeam.*;
-import static org.assertj.core.api.Assertions.as;
+import static io.security.querydslpractice.entity.QTeam.team;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
